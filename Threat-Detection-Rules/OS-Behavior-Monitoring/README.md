@@ -71,7 +71,7 @@ index=sysmon (EventCode=13 OR EventCode=12 OR EventCode=14)
 | where like(TargetObject, "%\\Software\\Microsoft\\Windows\\CurrentVersion\\Run%")
 | table _time Computer User EventCode TargetObject Details
 | sort 0 -_time
-(Placeholder: Screenshot of the Splunk query returning the Run key modification)
+
 
 Detection 2: Suspicious LOLBin Execution (Event ID 4688 & Sysmon 1)
 This query coalesces native Windows logs and Sysmon logs to detect the execution of commonly abused native binaries (PowerShell, mshta, rundll32) along with their full command-line arguments.
@@ -82,7 +82,7 @@ Splunk SPL
 | where match(lower(cmd), "(powershell|mshta|rundll32|regsvr32)")
 | table _time Computer Account_Name User New_Process_Name Image cmd Parent_Process_Name ParentImage
 | sort 0 -_time
-(Placeholder: Screenshot of Splunk capturing the -NoP -W Hidden PowerShell command)
+
 
 Detection 3: Audit Policy Tampering (Event ID 4719)
 Adversaries frequently attempt to disable logging. This query detects when the system's underlying audit policy is altered.
@@ -99,7 +99,6 @@ index=main | search sshd_config_change
 | rex field=_raw "name=\"(?<file>/etc/ssh/sshd_config)\""
 | table _time host file auid uid msg_type exe _raw
 | sort 0 -_time
-(Placeholder: Screenshot of the auditd log in Splunk showing the SSH config modification)
 
 Phase 4: Remediation & Rollback
 Following the successful detection, the environment was restored to its secure baseline to prevent configuration drift.
