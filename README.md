@@ -9,5 +9,6 @@
 ### Security Architecture & Engineering
 * [Enterprise SOC Infrastructure: Building a Containerized SIEM & Telemetry Lab](./Security-Automation/SOC-Lab-Environment/README.md)
 * [Applied Cryptography & PKI: File Integrity, AES-256 Encryption, and Hardened TLS Deployment](./Security-Automation/Applied-Cryptography-PKI/README.md)
+* [End-to-End SOAR Pipeline: Automated EDR Alert Triage & Endpoint Firewall Isolation](./Security-Automation/Automated-EDR-Host-Isolation/README.md)
 ### Vulnerability Management & Risk Assessment
 * [Cloud Asset Discovery & Risk Assessment: CSPM and Shadow IT Remediation](./Vulnerability-Management/Cloud-Asset-Discovery/README.md)
